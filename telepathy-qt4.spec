@@ -12,10 +12,13 @@ URL:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 BuildRequires:	QtCore-devel >= %{qt_ver}
 BuildRequires:	QtDBus-devel >= %{qt_ver}
 BuildRequires:	QtGui-devel >= %{qt_ver}
+BuildRequires:	QtNetwork-devel
+BuildRequires:	QtTest-devel
 BuildRequires:	cmake >= 2.6.2
 BuildRequires:	graphviz
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
+BuildRequires:	python-modules
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
