@@ -16,8 +16,6 @@ BuildRequires:	QtDBus-devel >= %{qt_ver}
 BuildRequires:	QtGui-devel >= %{qt_ver}
 BuildRequires:	QtNetwork-devel >= %{qt_ver}
 BuildRequires:	QtTest-devel >= %{qt_ver}
-BuildRequires:	cmake >= 2.6.2
-BuildRequires:	graphviz
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-modules
