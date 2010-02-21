@@ -17,11 +17,15 @@ BuildRequires:	QtGui-devel >= %{qt_ver}
 BuildRequires:	QtNetwork-devel >= %{qt_ver}
 BuildRequires:	QtTest-devel >= %{qt_ver}
 BuildRequires:	pkgconfig
+BuildRequires:	python-dbus
 BuildRequires:	python-devel
 BuildRequires:	python-modules
+BuildRequires:	python-pygobject
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
+BuildRequires:	telepathy-farsight-devel
+BuildRequires:	telepathy-glib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -75,15 +79,21 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4.so.?
+%attr(755,root,root) %{_libdir}/libtelepathy-qt4-farsight.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4-farsight.so.?
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so
+%attr(755,root,root) %{_libdir}/libtelepathy-qt4-farsight.so
 %{_libdir}/libtelepathy-qt4.la
+%{_libdir}/libtelepathy-qt4-farsight.la
 %{_includedir}/telepathy-1.0
 %{_pkgconfigdir}/TelepathyQt4.pc
+%{_pkgconfigdir}/TelepathyQt4Farsight.pc
 
 %files static
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.a
+%attr(755,root,root) %{_libdir}/libtelepathy-qt4-farsight.a
