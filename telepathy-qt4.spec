@@ -1,16 +1,16 @@
 
+%define		orgname	telepathy-qt
 %define		qt_ver		4.8.2
 
 Summary:	Telepathy Qt4
 Summary(pl.UTF-8):	Telepathy Qt4
 Name:		telepathy-qt4
-Version:	0.8.0
+Version:	0.9.3
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://telepathy.freedesktop.org/releases/telepathy-qt4/%{name}-%{version}.tar.gz
-# Source0-md5:	b93f03f063d784855d83e1b3c79a1cc5
-Patch0:		%{name}-build.patch
+Source0:	http://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
+# Source0-md5:	94ac93aedf5f6fff49837bc8368e5a37
 URL:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 BuildRequires:	QtCore-devel >= %{qt_ver}
 BuildRequires:	QtDBus-devel >= %{qt_ver}
@@ -26,8 +26,7 @@ BuildRequires:	python-pygobject
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
-BuildRequires:	telepathy-farsight-devel
-BuildRequires:	telepathy-glib-devel
+BuildRequires:	telepathy-glib-devel >= 0.19.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,8 +45,7 @@ Header files for telepathy-qt4 library.
 Pliki nagłówkowe biblioteki telepathy-qt4
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n %{orgname}-%{version}
 
 %build
 install -d build
@@ -74,14 +72,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4.so.?
-%attr(755,root,root) %{_libdir}/libtelepathy-qt4-farsight.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4-farsight.so.?
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so
-%attr(755,root,root) %{_libdir}/libtelepathy-qt4-farsight.so
-%{_includedir}/telepathy-1.0
+%{_libdir}/cmake/TelepathyQt4
+%{_includedir}/telepathy-qt4
 %{_pkgconfigdir}/TelepathyQt4.pc
-%{_pkgconfigdir}/TelepathyQt4Farsight.pc
