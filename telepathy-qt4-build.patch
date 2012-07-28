@@ -1,0 +1,43 @@
+--- telepathy-qt4-0.8.0/TelepathyQt4/client-registrar.cpp~	2011-11-10 20:52:11.000000000 +0100
++++ telepathy-qt4-0.8.0/TelepathyQt4/client-registrar.cpp	2012-07-28 16:37:36.795988827 +0200
+@@ -20,6 +20,8 @@
+  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  */
+ 
++#include <inttypes.h>
++
+ #include <TelepathyQt4/ClientRegistrar>
+ #include "TelepathyQt4/client-registrar-internal.h"
+ 
+--- telepathy-qt4-0.8.0/TelepathyQt4/stream-tube-server.cpp~	2011-11-10 20:52:11.000000000 +0100
++++ telepathy-qt4-0.8.0/TelepathyQt4/stream-tube-server.cpp	2012-07-28 16:39:34.525627400 +0200
+@@ -20,6 +20,8 @@
+  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  */
+ 
++#include <inttypes.h>
++
+ #include <TelepathyQt4/StreamTubeServer>
+ #include "TelepathyQt4/stream-tube-server-internal.h"
+ 
+--- telepathy-qt4-0.8.0/TelepathyQt4/stream-tube-client.cpp~	2011-11-10 20:52:11.000000000 +0100
++++ telepathy-qt4-0.8.0/TelepathyQt4/stream-tube-client.cpp	2012-07-28 16:39:57.932884930 +0200
+@@ -20,6 +20,8 @@
+  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  */
+ 
++#include <inttypes.h>
++
+ #include <TelepathyQt4/StreamTubeClient>
+ 
+ #include "TelepathyQt4/stream-tube-client-internal.h"
+--- telepathy-qt4-0.8.0/TelepathyQt4/Farsight/CMakeLists.txt~	2011-11-10 20:52:11.000000000 +0100
++++ telepathy-qt4-0.8.0/TelepathyQt4/Farsight/CMakeLists.txt	2012-07-28 16:46:07.879664825 +0200
+@@ -29,6 +29,7 @@
+         ${QT_QTDBUS_LIBRARY}
+         ${QT_QTCORE_LIBRARY}
+         ${TELEPATHY_FARSIGHT_LIBRARIES}
++        ${TELEPATHY_GLIB_LIBRARIES}
+         ${GSTREAMER_INTERFACE_LIBRARY}
+         telepathy-qt4)
+ 
