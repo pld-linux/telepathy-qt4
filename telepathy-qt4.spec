@@ -6,7 +6,7 @@ Summary:	Telepathy Qt4
 Summary(pl.UTF-8):	Telepathy Qt4
 Name:		telepathy-qt4
 Version:	0.9.3
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
@@ -48,11 +48,10 @@ Pliki nagłówkowe biblioteki telepathy-qt4
 %setup -q -n %{orgname}-%{version}
 
 %build
-export QTDIR="%{_libdir}/qt4"
-
 install -d build
 cd build
 %cmake \
+	-DQT_QMAKE_EXECUTABLE_FINDQT=%{_libdir}/qt4/bin/qmake \
         ../
 
 %{__make}
