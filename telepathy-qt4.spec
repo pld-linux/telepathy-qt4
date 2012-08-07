@@ -48,6 +48,8 @@ Pliki nagłówkowe biblioteki telepathy-qt4
 %setup -q -n %{orgname}-%{version}
 
 %build
+export QTDIR="%{_libdir}/qt4"
+
 install -d build
 cd build
 %cmake \
