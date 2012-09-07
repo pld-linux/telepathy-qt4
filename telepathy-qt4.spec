@@ -2,8 +2,8 @@
 %define		orgname	telepathy-qt
 %define		qt_ver		4.8.2
 
-Summary:	Telepathy Qt4
-Summary(pl.UTF-8):	Telepathy Qt4
+Summary:	Library for Qt4-based Telepathy clients
+Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
 Version:	0.9.3
 Release:	3
@@ -16,28 +16,45 @@ BuildRequires:	QtCore-devel >= %{qt_ver}
 BuildRequires:	QtDBus-devel >= %{qt_ver}
 BuildRequires:	QtGui-devel >= %{qt_ver}
 BuildRequires:	QtNetwork-devel >= %{qt_ver}
+BuildRequires:	QtXml-devel >= %{qt_ver}
 BuildRequires:	QtTest-devel >= %{qt_ver}
-BuildRequires:	cmake
+BuildRequires:	cmake >= 2.6
+BuildRequires:	dbus-devel
+BuildRequires:	dbus-glib-devel
+BuildRequires:	farstream-devel >= 0.1.0
+BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	python-dbus
-BuildRequires:	python-devel
-BuildRequires:	python-modules
+BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python-modules >= 1:2.5
 BuildRequires:	python-pygobject
 BuildRequires:	qt4-build >= %{qt_ver}
 BuildRequires:	qt4-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	telepathy-farstream-devel >= 0.2.2
 BuildRequires:	telepathy-glib-devel >= 0.19.5
+Requires:	QtCore >= %{qt_ver}
+Requires:	QtDBus >= %{qt_ver}
+Requires:	QtNetwork >= %{qt_ver}
+Requires:	QtXml >= %{qt_ver}
+Requires:	telepathy-farstream >= 0.2.2
+Requires:	telepathy-glib >= 0.19.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Telepathy-Qt4 is a high-level binding for Telepathy.
+Library for Qt4-based Telepathy clients.
+
+%description -l pl.UTF-8
+Biblioteka dla klientów Telepathy opartych na Qt4.
 
 %package devel
 Summary:	Header files for telepathy-qt4 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki telepathy-qt4
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	QtCore-devel >= %{qt_ver}
+Requires:	QtDBus-devel >= %{qt_ver}
 
 %description devel
 Header files for telepathy-qt4 library.
@@ -73,9 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4.so.?
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4.so.2
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4-farstream.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4-farstream.so.?
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4-farstream.so.2
 
 %files devel
 %defattr(644,root,root,755)
