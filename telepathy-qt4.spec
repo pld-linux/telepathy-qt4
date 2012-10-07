@@ -6,11 +6,12 @@ Summary:	Library for Qt4-based Telepathy clients
 Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
 Version:	0.9.3
-Release:	3
+Release:	4
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
 # Source0-md5:	94ac93aedf5f6fff49837bc8368e5a37
+Patch0:		%{name}-build.patch
 URL:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 BuildRequires:	QtCore-devel >= %{qt_ver}
 BuildRequires:	QtDBus-devel >= %{qt_ver}
@@ -66,11 +67,14 @@ Pliki nagłówkowe biblioteki telepathy-qt4
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch0 -p1
 
 %build
 install -d build
 cd build
 %cmake \
+	-DENABLE_FARSTREAM:BOOL=ON \
+	-DENABLE_FARSIGHT:BOOL=OFF \
 	-DQT_QMAKE_EXECUTABLE_FINDQT=%{_libdir}/qt4/bin/qmake \
         ../
 
