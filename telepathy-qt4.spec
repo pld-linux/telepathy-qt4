@@ -12,12 +12,13 @@
 Summary:	Library for Qt4-based Telepathy clients
 Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
-Version:	0.9.5
-Release:	2
+Version:	0.9.6.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
-# Source0-md5:	22c0daa7e4f7e48e779f703c9b27b816
+# Source0-md5:	bebebfbe29d194a9ba00b4f422a44f74
+Patch0:		telepathy-qt-warnings.patch
 URL:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
 BuildRequires:	cmake >= 2.6
 BuildRequires:	dbus-devel
@@ -132,6 +133,7 @@ Pliki nagłówkowe biblioteki telepathy-qt5.
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%patch0 -p1
 
 %build
 %if %{with qt4}
