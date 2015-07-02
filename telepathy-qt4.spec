@@ -40,8 +40,8 @@ BuildRequires:	QtDBus-devel >= %{qt4_ver}
 BuildRequires:	QtGui-devel >= %{qt4_ver}
 BuildRequires:	QtHelp >= %{qt4_ver}
 BuildRequires:	QtNetwork-devel >= %{qt4_ver}
-BuildRequires:	QtXml-devel >= %{qt4_ver}
 BuildRequires:	QtTest-devel >= %{qt4_ver}
+BuildRequires:	QtXml-devel >= %{qt4_ver}
 BuildRequires:	qt4-build >= %{qt4_ver}
 BuildRequires:	qt4-qmake >= %{qt4_ver}
 %endif
@@ -93,6 +93,9 @@ Pliki nagłówkowe biblioteki telepathy-qt4.
 Summary:	API documentation for telepathy-qt4 and telepathy-qt5 libraries
 Summary(pl.UTF-8):	Dokumentacja API bibliotek telepathy-qt5 i telepathy-qt5
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for telepathy-qt4 and telepathy-qt5 libraries.
@@ -121,9 +124,9 @@ Biblioteka dla klientów Telepathy opartych na Qt5.
 Summary:	Header files for telepathy-qt5 library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki telepathy-qt5
 Group:		Development/Libraries
-Requires:	telepathy-qt5 = %{version}-%{release}
 Requires:	Qt5Core-devel >= %{qt5_ver}
 Requires:	Qt5DBus-devel >= %{qt5_ver}
+Requires:	telepathy-qt5 = %{version}-%{release}
 
 %description -n telepathy-qt5-devel
 Header files for telepathy-qt5 library.
