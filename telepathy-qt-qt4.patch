@@ -1,0 +1,12 @@
+--- telepathy-qt-0.9.7/tests/dbus/CMakeLists.txt.orig	2016-06-12 13:04:05.000000000 +0200
++++ telepathy-qt-0.9.7/tests/dbus/CMakeLists.txt	2016-06-18 15:54:56.271798442 +0200
+@@ -93,7 +93,9 @@
+ if(ENABLE_SERVICE_SUPPORT)
+     tpqt_add_dbus_unit_test(BaseConnectionManager base-cm telepathy-qt${QT_VERSION_MAJOR}-service)
+     tpqt_add_dbus_unit_test(BaseProtocol base-protocol telepathy-qt${QT_VERSION_MAJOR}-service)
++    if (${QT_VERSION_MAJOR} GREATER 4)
+     tpqt_add_dbus_unit_test(BaseChannelFileTransferType base-filetransfer telepathy-qt${QT_VERSION_MAJOR}-service)
++    endif (${QT_VERSION_MAJOR} GREATER 4)
+ endif(ENABLE_SERVICE_SUPPORT)
+ 
+ # Make check target. In case of check, output on failure and put it into a log

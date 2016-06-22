@@ -1,21 +1,10 @@
---- telepathy-qt-0.9.6.1/cmake/modules/TelepathyDefaults.cmake.orig	2015-05-24 21:33:18.000000000 +0200
-+++ telepathy-qt-0.9.6.1/cmake/modules/TelepathyDefaults.cmake	2015-05-29 18:06:23.916014194 +0200
-@@ -108,7 +108,7 @@
-     endif(${NOT_RELEASE} EQUAL 1)
- 
-     if(CMAKE_SYSTEM_NAME MATCHES Linux)
--        add_definitions(-D_BSD_SOURCE)
-+        add_definitions(-D_DEFAULT_SOURCE)
-     endif(CMAKE_SYSTEM_NAME MATCHES Linux)
- 
-     # Compiler coverage
 --- telepathy-qt-0.9.6.1/tests/dbus/stream-tube-chan.cpp.orig	2015-05-24 21:33:18.000000000 +0200
 +++ telepathy-qt-0.9.6.1/tests/dbus/stream-tube-chan.cpp	2015-05-29 18:55:05.122558269 +0200
 @@ -118,6 +118,7 @@
          g_object_unref(localAddress);
  
          Q_ASSERT(success);
-+	(void)success;
++        (void)success;
      }
  
      return clientSocket;

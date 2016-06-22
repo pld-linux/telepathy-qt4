@@ -12,19 +12,21 @@
 Summary:	Library for Qt4-based Telepathy clients
 Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
-Version:	0.9.6.1
+Version:	0.9.7
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
-# Source0-md5:	bebebfbe29d194a9ba00b4f422a44f74
+Source0:	https://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
+# Source0-md5:	86470dd3d7f6de8b8f4f36165486d42f
 Patch0:		telepathy-qt-warnings.patch
-URL:		http://telepathy.freedesktop.org/wiki/Telepathy-Qt4
-BuildRequires:	cmake >= 2.6
+Patch1:		telepathy-qt-qt4.patch
+Patch2:		telepathy-qt-link.patch
+URL:		https://telepathy.freedesktop.org/wiki/Telepathy-Qt4
+BuildRequires:	cmake >= 2.8.12
 BuildRequires:	dbus-devel
 BuildRequires:	dbus-glib-devel
 BuildRequires:	farstream-devel >= 0.2.0
-BuildRequires:	glib2-devel >= 2.0
+BuildRequires:	glib2-devel >= 1:2.16
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	python-dbus
@@ -137,6 +139,8 @@ Pliki nagłówkowe biblioteki telepathy-qt5.
 %prep
 %setup -q -n %{orgname}-%{version}
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %if %{with qt4}
@@ -193,13 +197,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4.so.2
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4-farstream.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4-farstream.so.2
+%attr(755,root,root) %{_libdir}/libtelepathy-qt4-service.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt4-service.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4-farstream.so
-%{_libdir}/libtelepathy-qt4-service.a
+%attr(755,root,root) %{_libdir}/libtelepathy-qt4-service.so
 %{_libdir}/cmake/TelepathyQt4
 %{_libdir}/cmake/TelepathyQt4Farstream
 %{_libdir}/cmake/TelepathyQt4Service
@@ -221,12 +227,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt5.so.0
 %attr(755,root,root) %{_libdir}/libtelepathy-qt5-farstream.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt5-farstream.so.0
+%attr(755,root,root) %{_libdir}/libtelepathy-qt5-service.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt5-service.so.0
 
 %files -n telepathy-qt5-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libtelepathy-qt5.so
 %attr(755,root,root) %{_libdir}/libtelepathy-qt5-farstream.so
-%{_libdir}/libtelepathy-qt5-service.a
+%attr(755,root,root) %{_libdir}/libtelepathy-qt5-service.so
 %{_libdir}/cmake/TelepathyQt5
 %{_libdir}/cmake/TelepathyQt5Farstream
 %{_libdir}/cmake/TelepathyQt5Service
