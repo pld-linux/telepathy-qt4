@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	qt4	# Qt4 interface
+%bcond_with	qt4	# Qt4 interface
 %bcond_without	qt5	# Qt5 interface
 
 # "telepathy_qt" name is occupied by earlier work under the same name from different project;
@@ -12,12 +12,12 @@
 Summary:	Library for Qt4-based Telepathy clients
 Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
-Version:	0.9.7
+Version:	0.9.8
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
-# Source0-md5:	86470dd3d7f6de8b8f4f36165486d42f
+# Source0-md5:	2d55d477778ff7be9115746759bc398f
 Patch0:		telepathy-qt-warnings.patch
 Patch1:		telepathy-qt-qt4.patch
 Patch2:		telepathy-qt-link.patch
@@ -139,8 +139,8 @@ Pliki nagłówkowe biblioteki telepathy-qt5.
 %prep
 %setup -q -n %{orgname}-%{version}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
+#%%patch1 -p1
+#%%patch2 -p1
 
 %build
 %if %{with qt4}
@@ -228,7 +228,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libtelepathy-qt5-farstream.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt5-farstream.so.0
 %attr(755,root,root) %{_libdir}/libtelepathy-qt5-service.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt5-service.so.0
+%attr(755,root,root) %ghost %{_libdir}/libtelepathy-qt5-service.so.1
 
 %files -n telepathy-qt5-devel
 %defattr(644,root,root,755)
