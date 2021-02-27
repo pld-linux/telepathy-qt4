@@ -35,6 +35,7 @@ BuildRequires:	python-dbus
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-modules >= 1:2.5
 BuildRequires:	python-pygobject
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.293
 BuildRequires:	telepathy-farstream-devel >= 0.6.0
 BuildRequires:	telepathy-glib-devel >= 0.18.0
@@ -97,9 +98,7 @@ Pliki nagłówkowe biblioteki telepathy-qt4.
 Summary:	API documentation for telepathy-qt4 and telepathy-qt5 libraries
 Summary(pl.UTF-8):	Dokumentacja API bibliotek telepathy-qt5 i telepathy-qt5
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for telepathy-qt4 and telepathy-qt5 libraries.
