@@ -1,7 +1,8 @@
+# NOTE: for telepathy-qt >= 0.9.8 (Qt5 only) see telepathy-qt5.spec
 #
 # Conditional build:
 %bcond_without	qt4	# Qt4 interface
-%bcond_without	qt5	# Qt5 interface
+%bcond_with	qt5	# Qt5 interface (built from telepathy-qt5.spec)
 
 # "telepathy_qt" name is occupied by earlier work under the same name from different project;
 # thus spec and repo stick to original "telepathy-qt4" name of this project (used before 0.9.0 release)
@@ -12,6 +13,7 @@
 Summary:	Library for Qt4-based Telepathy clients
 Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
+# keep 0.9.7 here for qt4 support
 Version:	0.9.7
 Release:	1
 License:	LGPL v2.1+
