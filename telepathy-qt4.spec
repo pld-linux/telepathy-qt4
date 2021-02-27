@@ -68,7 +68,7 @@ Requires:	QtNetwork >= %{qt4_ver}
 Requires:	QtXml >= %{qt4_ver}
 Requires:	telepathy-farstream >= 0.6.0
 Requires:	telepathy-glib >= 0.18.0
-Obsoletes:	telepathy-qt4-yell
+Obsoletes:	telepathy-qt4-yell < 0.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -86,7 +86,7 @@ Requires:	QtCore-devel >= %{qt4_ver}
 Requires:	QtDBus-devel >= %{qt4_ver}
 Requires:	QtNetwork-devel >= %{qt4_ver}
 Requires:	QtXml-devel >= %{qt4_ver}
-Obsoletes:	telepathy-qt4-yell-devel
+Obsoletes:	telepathy-qt4-yell-devel < 0.2
 
 %description devel
 Header files for telepathy-qt4 library.
