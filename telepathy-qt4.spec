@@ -203,7 +203,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/html
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4.so
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4-farstream.so
 %attr(755,root,root) %{_libdir}/libtelepathy-qt4-service.so
