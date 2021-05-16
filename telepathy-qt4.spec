@@ -15,7 +15,7 @@ Summary(pl.UTF-8):	Biblioteka dla klientów Telepathy opartych na Qt4
 Name:		telepathy-qt4
 # keep 0.9.7 here for qt4 support
 Version:	0.9.7
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://telepathy.freedesktop.org/releases/telepathy-qt/%{orgname}-%{version}.tar.gz
